@@ -1,0 +1,1 @@
+globalThis.process??={},globalThis.process.env??={};import"https://adm.shinobi.jp/s/dfb0ceffad1ef41111c5d4d7e44edeb1";
