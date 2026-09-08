@@ -1,0 +1,79 @@
+/* ===== ヘッダー & フッター ===== */
+.header {
+    height: 45px;
+    position: fixed;
+    top: 0;
+    z-index: 300;
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 10px 20px;
+    color: #666;
+    background: var(--white);
+}
+
+/* ===== レイアウト構造 ===== */
+.main-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: var(--header-height);
+    min-height: calc(100vh - 110px);
+    justify-content: center;
+}
+
+.container {
+    width: 770px;
+    background-color: var(--white);
+    padding-top: 20px;
+    min-height: calc(100vh - 110px);
+    box-sizing: border-box;
+    margin: 0 auto;
+    transition: filter var(--transition);
+}
+
+/* 広告の共通設定 */
+.ad-left, .ad-right {
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+    max-width: 160px;
+}
+.ad-left { grid-column: 1; margin-left: 40px; }
+.ad-right { grid-column: 3; }
+
+.ad-inline {
+    max-width: 728px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+/* フォームスタイル*/
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+/* レイアウトのレスポンシブ */
+@media (max-width: 1600px) {
+    .ad-left, .ad-right { display: none; }
+    .main-layout { display: block; width: 100%; }
+    .container { width: 100%; max-width: 770px; }
+}
+
+@media (max-width: 600px) {
+    .container { width: 100%; padding: 10px; }
+    .form-row { flex-direction: column; }
+}

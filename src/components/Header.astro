@@ -1,0 +1,33 @@
+---
+import Menu from "./Menu.astro";
+---
+
+<header class="header">
+    <div class="header-title">
+        <h1><a href="https://www.motchiy.com/">Motchiy Server</a></h1>
+    </div>
+</header>
+
+<!-- フロートメニュー -->
+<input type="checkbox" id="menu-btn-check" />
+<label for="menu-btn-check" class="menu-btn">
+    <span></span>
+</label>
+
+<nav class="menu">
+    <h2>メニュー</h2>
+    <Menu />
+</nav>
+
+<!-- パンくずリスト -->
+<nav class="breadcrumb-wrap">
+    <!--?php include 'breadcrumbs.php'; ?-->
+</nav>
+
+<!-- アヒルボタン -->
+<a
+    type="button"
+    class="duck-btn"
+    href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%92%E3%83%AB"
+>
+</a>

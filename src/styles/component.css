@@ -1,0 +1,112 @@
+/* ===== コンテンツ要素 ===== */
+img, .content-img {
+    border-radius: 6px;
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin-inline: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px 14px;
+    border-right: 1px solid #666;
+}
+
+.no-bottom {
+    border-bottom: 0 !important;
+}
+
+.no-right {
+    border-right: 0 !important;
+}
+
+th:last-child, td:last-child { border-right: none; }
+tr:nth-child(even) { background-color: #f1f1f1; }
+tr:nth-child(odd) { background-color: var(--white); }
+
+/* ===== ボタン系 ===== */
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 25px 0;
+}
+
+.share-btn, .link-btn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+}
+
+.share-btn {
+  text-decoration: none;
+  color: white;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .15s ease;
+  border: 2px solid transparent;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: invert(100%);
+  transition: filter .2s ease;
+}
+
+.share-btn.twitter { background: #1da1f2; }
+.share-btn.facebook { background: #1877f2; }
+.share-btn.line { background: #00c300; }
+
+.share-btn.twitter:hover { background: white; color: #1da1f2; border-color: #1da1f2; }
+.share-btn.facebook:hover { background: white; color: #1877f2; border-color: #1877f2; }
+.share-btn.line:hover { background: white; color: #00c300; border-color: #00c300; }
+
+.share-btn.twitter:hover .icon { filter: invert(42%) sepia(93%) saturate(749%) hue-rotate(176deg) brightness(96%) contrast(96%); }
+.share-btn.facebook:hover .icon { filter: invert(33%) sepia(93%) saturate(2000%) hue-rotate(201deg) brightness(95%) contrast(90%); }
+.share-btn.line:hover .icon { filter: invert(48%) sepia(93%) saturate(2000%) hue-rotate(75deg) brightness(95%) contrast(90%); }
+
+.link-btn {
+    color: var(--primary-color);
+    background: var(--white);
+    border: 1px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.link-btn:hover { background: var(--primary-color); color: var(--white); }
+
+/* ===== グリッドアイテム ===== */
+.item-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.item {
+    padding: 16px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.item h3 {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* ===== コピーライト ===== */
+.copyright {
+    margin-top: 0;
+}
+
+/* スマホ時グリッド */
+@media (max-width: 600px) {
+    .item-wrap { grid-template-columns: repeat(2, 1fr); }
+}

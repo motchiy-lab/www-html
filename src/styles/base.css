@@ -1,0 +1,101 @@
+/* ===== 変数定義 ===== */
+:root {
+    --primary-color: #504E7F;
+    --text-color: #333;
+    --bg-color: #eeeeee;
+    --white: #ffffff;
+    --transition: 0.25s ease;
+    --header-height: 55px;
+    --hover-filter: brightness(75%);
+}
+
+/* ===== 基本設定 ===== */
+body {
+    font-family: sans-serif;
+    background: var(--bg-color);
+    margin: 0;
+    color: var(--text-color);
+}
+
+h1, h2, h3 { margin: 0; }
+h1 { color: var(--white); }
+h2, h3 { color: var(--primary-color); }
+
+h2 {
+    margin-top: 5px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #bfbfbf;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+h4 {
+    margin-bottom: -8px;
+}
+
+ul, ol {
+    margin-left: 1.2em;
+    padding-left: 0;
+}
+
+section {
+    padding: 20px 40px;
+    position: relative;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    width: 100%;
+    border-bottom: 5px dotted #eeeeee;
+}
+
+/* ===== コード ===== */
+code {
+    font-family: Consolas, Monaco, monospace;
+    background-color: #f4f4f8;
+    color: var(--primary-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* ===== コードブロック ===== */
+pre {
+    background-color: #2d2d3a;
+    color: #f8f8f2;
+    padding: 8px 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* ===== リンク共通 ===== */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: background-color var(--transition), color var(--transition);
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* スクロール調整 */
+[id] { scroll-margin-top: 50px; }

@@ -1,17 +1,102 @@
 ---
-
+import Main from "../layouts/Main.astro";
+import { Content as MinecraftServerContent } from "../contents/minecraft-server.md";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Main pageTitle="ホーム">
+    <!-- サイト概要 -->
+    <section class="section highlight">
+        <h2>このサイトについて</h2>
+        <p>
+            Motchiyが運営するマインクラフトサーバーおよび
+            関連する個人サービスの情報をまとめたポータルサイトです。<br />
+            安定性・セキュリティ・遊びやすさを重視して運営しています。
+        </p>
+    </section>
+
+    <!-- マイクラサーバー情報 -->
+    <section class="section" id="mc-server">
+        <MinecraftServerContent />
+        <img src="/images/mc-server-banner.png" alt="Server Banner" />
+    </section>
+
+    <!--?php include_once 'content/maps.html'; ?-->
+
+    <section class="section highlight">
+        <h2>サーバーステータス</h2>
+        <p>現在の稼働状況やメンテナンス情報を掲載します。</p>
+        <a href="https://status.motchiy.com/" class="text-link"
+            >status.motchiy.com</a
+        >
+        <img
+            src="/images/maintenance-page.png"
+            alt="メンテナンス - Motchiy Server"
+        />
+    </section>
+
+    <!-- 宣伝掲示板 -->
+    <section class="section">
+        <h2>Heiki's Board</h2>
+        <h3>概要</h3>
+        <p>ログイン不要，広告無しで使えるYouTubeの宣伝掲示板です。</p>
+        <a href="https://heiki.motchiy.com/" class="text-link"
+            >heiki.motchiy.com</a
+        >
+        <img src="/images/heiki-home.png" alt="Heiki's Board - Home page" />
+    </section>
+
+    <!-- YouTubeダウンローダ -->
+    <section class="section">
+        <h2>yt-dlp on Motchiy</h2>
+        <h3>概要</h3>
+        <p>
+            YouTubeやニコニコなどの動画配信サービスから，動画やサムネイルをダウンロードできるサイトです。
+        </p>
+        <a href="https://ytdlp.motchiy.com/" class="text-link"
+            >ytdlp.motchiy.com</a
+        >
+        <img src="/images/ytdlp-home.png" alt="yt-dlp on Motchiy - Home page" />
+    </section>
+
+    <!-- ディスコードボット -->
+    <section class="section">
+        <h2>ディスコードボット</h2>
+        <p>
+            個人開発で作成した<b>オープンソースのDiscord Bot</b>です。<br />
+            シンプルで拡張しやすい構成を意識して作られています。
+        </p><p>
+            個人サーバーでの利用や、Discord Bot開発の学習用途を想定しています。
+        </p>
+        <a class="link-btn" href="discordbot-oss">詳細を見る</a>
+    </section>
+
+    <!-- 運営 -->
+    <section class="section">
+        <h2>運営</h2>
+        <p>これらのサービスは，以下のメンバーによって開発・提供されます。</p>
+        <ul>
+            <li>Motchiy</li>
+            <li>さいほうへいき</li>
+        </ul>
+        <a class="link-btn" href="profile">詳しく知る</a>
+    </section>
+
+    <section class="section highlight">
+        <h2>寄付のお願い</h2>
+        <p>
+            このサービスは個人で開発・運営しています。<br />
+            サーバー費用や開発時間はすべて自費でまかなっており、継続的な改善のために寄付を受け付けています。
+        </p>
+        <p>
+            もしサービスが役に立ったと感じていただけたら、寄付をご検討いただけると嬉しいです。
+        </p>
+        <a href="donate" class="link-btn">寄付方法を見る</a>
+    </section>
+
+    <!-- PV数 -->
+    <section class="section">
+        <h2>プレビューカウンター</h2>
+        <p>どのページにどのくらいアクセスされたかを確認できるページです。</p>
+        <a href="pv-count" class="link-btn">ページを見る</a>
+    </section>
+</Main>

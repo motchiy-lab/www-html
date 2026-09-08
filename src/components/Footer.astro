@@ -1,0 +1,60 @@
+---
+import Contact from "./Contact.astro";
+---
+
+<!-- お問い合わせ -->
+<Contact />
+<!-- パソコン広告 --><!--?php if (!is_mobile()): ?-->
+<div class="ad-inline">
+    <script src="https://adm.shinobi.jp/s/dfb0ceffad1ef41111c5d4d7e44edeb1"
+    ></script>
+</div>
+<!--?php endif; ?-->
+
+<!-- スマホ広告 -->
+<!--?php if (is_mobile()): ?-->
+<div class="ad-inline">
+    <script src="https://adm.shinobi.jp/s/ccc4d4d71b222824281a22fc8e5ba1ad"
+    ></script>
+</div>
+<!--?php endif; ?-->
+
+<footer class="footer">
+    <div class="share-buttons">
+        <a class="share-btn twitter" target="_blank" rel="noopener">
+            <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg"
+                class="icon"
+                alt="Twitterアイコン"
+            />
+            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->Twitterで共有<!--?php endif; ?-->
+        </a>
+
+        <a class="share-btn facebook" target="_blank" rel="noopener">
+            <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
+                class="icon"
+                alt="Facebookアイコン"
+            />
+            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->Facebookで共有<!--?php endif; ?-->
+        </a>
+
+        <a class="share-btn line" target="_blank" rel="noopener">
+            <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/line.svg"
+                class="icon"
+                alt="LINEアイコン"
+            />
+            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->LINEで共有<!--?php endif; ?-->
+        </a>
+    </div>
+    <p class="copyright">&copy; 2026 Motchiy</p>
+</footer>
+
+<!-- 右広告 -->
+<aside class="ad-banner ad-right">
+    <script src="https://adm.shinobi.jp/s/037b4f60fd04e37b9c14abab7c52a421"
+    ></script>
+    <script src="https://adm.shinobi.jp/s/cea84da5f4aa43764ab031ae559a5589"
+    ></script>
+</aside>

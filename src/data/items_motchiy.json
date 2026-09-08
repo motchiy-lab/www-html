@@ -1,0 +1,65 @@
+[
+  {
+    "title": "X (Twitter)",
+    "links": [
+      { "url": "https://x.com/motchiy_tuti", "label": "投稿を見る" }
+    ]
+  },
+  {
+    "title": "Twitch",
+    "links": [
+      { "url": "https://twitch.tv/motchiy_tuti", "label": "配信を見る" }
+    ]
+  },
+  {
+    "title": "ニコニコ動画",
+    "links": [
+      { "url": "https://www.nicovideo.jp/user/132971421", "label": "投稿動画を見る" }
+    ]
+  },
+  {
+    "title": "公式LINE",
+    "links": [
+      { "url": "https://lin.ee/jVUudSs", "label": "友だちに追加" }
+    ]
+  },
+  {
+    "title": "GitHub",
+    "links": [
+      { "url": "https://github.com/MotchiyTuti", "label": "プロジェクト一覧" }
+    ]
+  },
+  {
+    "title": "Linktree",
+    "links": [
+      { "url": "https://linktr.ee/motchiy_tuti", "label": "リンクまとめ" }
+    ]
+  },
+  {
+    "title": "Qiita",
+    "links": [
+      { "url": "https://qiita.com/Motchiy_tuti", "label": "投稿記事を見る" }
+    ]
+  },
+  {
+    "title": "note",
+    "links": [
+      { "url": "https://note.com/motchiy_tuti", "label": "投稿記事を見る" }
+    ]
+  },
+  {
+    "title": "YouTube",
+    "links": [
+      { "url": "https://www.youtube.com/@motchiy_tuti", "label": "MMD" },
+      { "url": "https://www.youtube.com/@motchiy_game", "label": "ゲーム配信" },
+      { "url": "https://www.youtube.com/@motchiy_commentary", "label": "解説" }
+    ]
+  },
+  {
+    "title": "Wiki",
+    "links": [
+      { "url": "https://w.atwiki.jp/mootchiiy/pages/73.html", "label": "詳細な情報を見る" },
+      { "url": "https://w.atwiki.jp/mootchiiy/pages/94.html", "label": "サーバー情報" }
+    ]
+  }
+]

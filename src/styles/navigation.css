@@ -1,0 +1,173 @@
+/* ===== ヘッダータイトル ===== */
+h1 a {
+    color: var(--white);
+}
+
+h1 a:hover {
+    color: var(--white);
+    text-decoration-line: none;
+}
+
+/* ===== メニュー共通スタイル ===== */
+.side-menu, .menu-btn, .duck-btn { position: fixed; }
+
+/* 左固定サイドメニュー */
+.side-menu {
+    top: 80px;
+    left: calc(50% - 810px);
+    width: 240px;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu a, .menu a {
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    pointer-events: auto;
+}
+
+.side-menu a:hover, .menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration-line: none;
+}
+
+/* ハンバーガーメニューボタン */
+#menu-btn-check { display: none; }
+
+.menu-btn {
+    top: 0;
+    right: 0;
+    height: 55px;
+    width: 55px;
+    z-index: 600;
+    cursor: pointer;
+    display: none; /* 初期は非表示 */
+}
+
+.menu-btn span, .menu-btn span::before, .menu-btn span::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 20px;
+    border-radius: 3px;
+    background-color: var(--white);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--transition);
+}
+
+.menu-btn span::before { transform: translate(-50%, -50%) translateY(-8px); }
+.menu-btn span::after { transform: translate(-50%, -50%) translateY(8px); }
+
+/* 開閉アクション */
+#menu-btn-check:checked ~ .menu-btn span { background-color: transparent; }
+#menu-btn-check:checked ~ .menu-btn span::before { transform: translate(-50%, -50%) rotate(45deg); }
+#menu-btn-check:checked ~ .menu-btn span::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.menu {
+    top: 55px;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: #fffffff0;
+    z-index: 550;
+    padding: 4vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+/* メニュー内 */
+.menu h2 {
+    position: relative;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: -12px;
+    border-bottom: 0;
+    user-select: none;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.menu h2::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 6px;
+  background-color: var(--primary-color);
+  margin: 24px 3px;
+}
+
+.menu a {
+    width: 60%;
+}
+
+#menu-btn-check:checked ~ .menu { opacity: 1; visibility: visible; }
+#menu-btn-check:checked ~ .container { filter: grayscale(100%); }
+
+/* アヒルボタン */
+.duck-btn {
+    top: 0;
+    left: 0;
+    height: 55px;
+    width: 55px;
+    z-index: 600;
+    cursor: pointer;
+    background: var(--primary-color) url("../images/duck.png") no-repeat center / 58%;
+    border: none;
+}
+.duck-btn:hover { background-size: 60%; }
+
+/* ===== パンくずリスト ===== */
+.breadcrumb-wrap {
+    display: flex;
+    position: fixed;
+    z-index: 800;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    padding-left: 9px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    font-size: 0.9em;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-list li {
+    display: inline;
+    white-space: nowrap;
+}
+
+.breadcrumb-list li a {
+    color: var(--white);
+}
+
+.separator {
+    margin: 0 8px;
+}
+
+/* メニューのレスポンシブ切り替え */
+@media (max-width: 1300px) {
+    .side-menu { display: none; }
+    .menu-btn { display: flex; }
+}
+
+@media (max-width: 1630px) {
+    .side-menu { left: 0; }
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    .breadcrumb-wrap { display: none;}
+}

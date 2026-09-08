@@ -1,0 +1,80 @@
+---
+const { pageTitle, description = "", canonical = Astro.url.href } = Astro.props;
+
+import "../styles/base.css";
+import "../styles/component.css";
+import "../styles/contact.css";
+import "../styles/layout.css";
+import "../styles/navigation.css";
+
+import Header from "../components/Header.astro";
+import Menu from "../components/Menu.astro";
+import MaintenanceNotice from "../components/MaintenanceNotice.astro";
+import Footer from "../components/Footer.astro";
+import GoogleTag from "../components/GoogleTag.astro";
+---
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle} - Motchiy Server</title>
+
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+
+        <meta property="og:site_name" content="Motchiy Server" />
+        <meta property="og:title" content={`${pageTitle} - Motchiy Server`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content="/images/ogp.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+        <GoogleTag />
+    </head>
+
+    <body>
+        <Header />
+
+        <div class="main-layout">
+            <!-- 左広告 -->
+            <aside class="ad-banner ad-left">
+                <script
+                    src="https://adm.shinobi.jp/s/e12722c9994d3d6e45dc829c6cc2a73b"
+                ></script>
+                <script
+                    src="https://adm.shinobi.jp/s/1824812b189ff49b818af6c531b0707e"
+                ></script>
+            </aside>
+
+            <!-- サイドメニュー -->
+            <nav id="side-menu" class="side-menu">
+                <Menu />
+            </nav>
+
+            <main class="container">
+                <!--  <MaintenanceNotice /> -->
+                <slot />
+                <Footer title={pageTitle} />
+            </main>
+
+            <!-- 右広告 -->
+            <aside class="ad-banner ad-right">
+                <script
+                    src="https://adm.shinobi.jp/s/037b4f60fd04e37b9c14abab7c52a421"
+                ></script>
+                <script
+                    src="https://adm.shinobi.jp/s/cea84da5f4aa43764ab031ae559a5589"
+                ></script>
+            </aside>
+        </div>
+        <script>
+            import "../components/script.js";
+        </script>
+    </body>
+</html>

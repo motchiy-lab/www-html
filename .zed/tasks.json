@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Development server",
+    "command": "npm run dev",
+    "current_directory": "."
+  },
+  {
+    "label": "Build",
+    "command": "npm run build",
+    "current_directory": "."
+  },
+  {
+    "label": "Astro dev stop",
+    "command": "astro dev stop",
+    "current_directory": "."
+  }
+]
