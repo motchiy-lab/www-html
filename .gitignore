@@ -1,5 +1,5 @@
-# build output
-dist/
+# Wrangler local state and deploy config
+.wrangler/
 # generated types
 .astro/
 
