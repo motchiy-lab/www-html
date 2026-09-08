@@ -1,0 +1,8 @@
+name = "www-html-frontend"
+compatibility_date = "2026-03-08"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pv-counter-db"
+database_id = "3bec6327-1f3a-438b-ae21-3045d5ccd7de"

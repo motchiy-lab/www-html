@@ -1,24 +1,70 @@
 ---
 import Main from "../layouts/Main.astro";
+import { env } from "cloudflare:workers";
+
 const year = new Date().getFullYear();
 const month = new Date().getMonth() + 1;
+
+let pvData: { path: string; count: number }[] = [];
+let errorMessage = "";
+
+try {
+    const db = env.DB;
+    if (db) {
+        const { results } = await db
+            .prepare(
+                "SELECT path, count FROM page_views WHERE year = ? AND month = ? ORDER BY count DESC",
+            )
+            .bind(year, month)
+            .all();
+        pvData = results as { path: string; count: number }[];
+    } else {
+        errorMessage =
+            "Cloudflare D1データベースバインディング（DB）が見つかりません。";
+    }
+} catch (e: any) {
+    errorMessage = "データ取得エラー: " + e.message;
+}
 ---
 
 <Main pageTitle="プレビューカウンター">
-  <section class="section">
-    <h2 class="pv-title">{year}年 {month}月 のPV一覧</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ページ</th>
-          <th>PV</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="2">スタティック移行のため、リアルタイム集計は停止中またはGoogleアナリティクスをご利用ください。</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section class="section">
+        <h2 class="pv-title">{year}年 {month}月 のPV一覧</h2>
+        {
+            errorMessage && (
+                <p
+                    class="notice"
+                    style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;"
+                >
+                    {errorMessage}
+                </p>
+            )
+        }
+        <table>
+            <thead>
+                <tr>
+                    <th>ページ</th>
+                    <th>PV</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    pvData.length > 0 ? (
+                        pvData.map((row) => (
+                            <tr>
+                                <td>
+                                    <code>{row.path}</code>
+                                </td>
+                                <td>{row.count.toLocaleString()} PV</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colspan="2">データがまだありません。</td>
+                        </tr>
+                    )
+                }
+            </tbody>
+        </table>
+    </section>
 </Main>
