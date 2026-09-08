@@ -1,0 +1,113 @@
+---
+import Main from "../layouts/Main.astro";
+import expensesData from "../data/expenses.json";
+
+const categoryDict: Record<string, string> = {
+    "pc-parts": "PCパーツ",
+    domain: "ドメイン",
+};
+
+const tableNode = expensesData.find(
+    (node: any) => node.type === "table" && node.name === "expenses",
+);
+const rows = tableNode && tableNode.data ? [...tableNode.data].reverse() : [];
+---
+
+<Main pageTitle="寄付のお願い">
+    <section class="section">
+        <h2>寄付のお願い</h2>
+        <p>
+            このサービスは個人で開発・運営しています。
+            <br />
+            サーバー費用や開発時間はすべて自費でまかなっており、継続的な改善のために寄付を受け付けています。
+        </p>
+        <p>
+            もしサービスが役に立ったと感じていただけたら、寄付をご検討いただけると嬉しいです。
+        </p>
+        <a href="#how-to" class="link-btn">寄付方法を見る</a>
+    </section>
+
+    <section class="section" id="how-to">
+        <h2>寄付方法</h2>
+        <h3>Amazonギフト券</h3>
+        <p>以下のメールアドレスに，eギフトカードを送ってください</p>
+        <a href="mailto:donate@motchiy.com">donate@motchiy.com</a>
+        <br />
+        <a
+            href="https://www.amazon.co.jp/dp/B006DTLXSK?ref=altParentAsins_treatment_text_from_Any_to_Amazon&customizationToken=undefined&th=1"
+            >￥150～￥200,000</a
+        >
+    </section>
+
+    <section class="section">
+        <h2>寄付していただいた方へ</h2>
+        <p>
+            寄付していただいた方には、感謝の気持ちを込めて特別な機能や限定コンテンツを提供する予定です。
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>収支報告</h2>
+        <p>
+            寄付金の使い道や収支状況については、定期的に報告する予定です。<br />
+            透明性を大切にしていきます。
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>購入したもの</th>
+                    <th class="amount">金額</th>
+                    <th>カテゴリ</th>
+                    <th class="purchased_at">購入日</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    rows.map((row: any) => {
+                        const item = (row.item || "")
+                            .toUpperCase()
+                            .replace(/-/g, " ");
+                        const receiptUrl = row.receipt_url || "";
+                        const amount =
+                            parseInt(row.amount || "0", 10).toLocaleString() +
+                            "円";
+                        const category =
+                            categoryDict[row.category] || row.category;
+
+                        let purchasedAtFormatted = "";
+                        if (row.purchased_at) {
+                            const [y, m, d] = row.purchased_at.split("-");
+                            purchasedAtFormatted = `${y}年 ${parseInt(m, 10)}月 ${parseInt(d, 10)}日`;
+                        }
+
+                        return (
+                            <tr>
+                                <td>
+                                    {receiptUrl ? (
+                                        <a href={receiptUrl} class="text-link">
+                                            {item}
+                                        </a>
+                                    ) : (
+                                        item
+                                    )}
+                                </td>
+                                <td class="amount">{amount}</td>
+                                <td>{category}</td>
+                                <td>{purchasedAtFormatted}</td>
+                            </tr>
+                        );
+                    })
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <section class="section">
+        <h2>最後に</h2>
+        <p>
+            このサービスをより良くするために、皆様のご支援とフィードバックをお待ちしています。<br
+            />
+            今後もよろしくお願いします。
+        </p>
+    </section>
+</Main>

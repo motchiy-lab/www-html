@@ -1,0 +1,17 @@
+---
+import Main from "../layouts/Main.astro";
+import { Content as RulesContent } from "../contents/rules.md";
+import { Content as PrivacyContent } from "../contents/privacy-policy.md";
+---
+
+<Main pageTitle="規約とプライバシー">
+  <section class="section">
+    <h2>利用規約</h2>
+    <RulesContent />
+  </section>
+
+  <section class="section">
+    <h2>プライバシーポリシー</h2>
+    <PrivacyContent />
+  </section>
+</Main>

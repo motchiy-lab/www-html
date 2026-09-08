@@ -1,0 +1,31 @@
+---
+import Main from "../layouts/Main.astro";
+const mods = [
+  "GVCLib__1.20.1__beta2.2.jar",
+  "GVCObjModel__1.20.1__2.4.jar",
+  "GVCR3__1.20.1__trial1.1.jar",
+  "JujutsuCraft-ver44.3-forge-1.20.1.jar",
+  "Neat-1.20.1-41-FORGE.jar",
+  "bobakugarasu-1.0.0-forge-1.20.1.jar",
+  "geckolib-forge-1.20.1-4.7.4.jar",
+  "jei-1.20.1-forge-15.20.0.112.jar",
+  "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+  "toolleveling-forge-1.20.1-2.0.0.jar",
+];
+---
+
+<Main pageTitle="Jujutsu Mods">
+  <section class="section">
+    <h2>呪術廻戦サーバー用MOD一覧</h2>
+    <p>サーバーで使用しているMOD一覧です。個別にダウンロードできます。</p>
+    <ul>
+      {mods.map((mod) => (
+        <li>
+          <a href={`/jujutsu-mods/${mod}`} download class="text-link">
+            {mod}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Main>

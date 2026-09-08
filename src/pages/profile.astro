@@ -1,0 +1,57 @@
+---
+import Main from "../layouts/Main.astro";
+import itemsMotchiy from "../data/items_motchiy.json";
+import itemsHeiki from "../data/items_heiki.json";
+---
+
+<Main pageTitle="プロフィール">
+  <section class="section highlight">
+    <h2>概要</h2>
+    <p>
+      このページでは，いろんなページへのリンクが集められています。<br />
+      自分のチャンネルとか，友達のウィキとか，そんな感じです。
+    </p>
+  </section>
+
+  <section class="section" id="motchiy">
+    <h2>Motchiy</h2>
+    <h3>プロフィールメッセージ</h3>
+    <p>こんなのを読む暇があるなら<br />他の事した方が良いよ<br />特別な事は書いてないからね</p>
+
+    {itemsMotchiy.map((category) => (
+      <div class="item-category">
+        <h3>{category.title}</h3>
+        <ul>
+          {category.links.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-link">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <section class="section" id="heiki">
+    <h2>さいほうへいき</h2>
+    <h3>プロフィールメッセージ</h3>
+    <p>私は、真なる神。そう、汝らは我に平伏するべきである。この世の原初のあるべき姿に導こう。</p>
+
+    {itemsHeiki.map((category) => (
+      <div class="item-category">
+        <h3>{category.title}</h3>
+        <ul>
+          {category.links.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-link">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+</Main>
