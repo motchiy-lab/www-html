@@ -6,3 +6,7 @@ pages_build_output_dir = "./dist"
 binding = "DB"
 database_name = "pv-counter-db"
 database_id = "3bec6327-1f3a-438b-ae21-3045d5ccd7de"
+
+[[kv_namespaces]]
+binding = "SESSION"
+id = "fae51b6ad5ab47258c78cc06dcd6e005"
