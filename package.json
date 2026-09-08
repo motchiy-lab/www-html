@@ -9,9 +9,7 @@
     "dev": "astro dev",
     "build": "rm -rf .wrangler && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "d1:init": "wrangler d1 execute pv-counter-db --local --file=schema.sql",
-    "d1:init:remote": "wrangler d1 execute pv-counter-db --remote --file=schema.sql"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^8.0.0",
