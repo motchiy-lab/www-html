@@ -11,10 +11,6 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "@astrojs/cloudflare": "^8.0.0",
-    "astro": "^4.16.0"
-  },
   "allowScripts": {
     "esbuild": true
   },
