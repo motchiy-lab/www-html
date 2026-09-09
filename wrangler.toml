@@ -1,6 +1,16 @@
 name = "www-html"
 compatibility_date = "2026-03-08"
-pages_build_output_dir = "./dist"
+
+main = "@astrojs/cloudflare/entrypoints/server"
+
+compatibility_flags = [
+  "nodejs_compat",
+  "global_fetch_strictly_public"
+]
+
+[assets]
+binding = "ASSETS"
+directory = "./dist"
 
 [[kv_namespaces]]
 binding = "SESSION"
