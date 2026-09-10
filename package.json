@@ -1,20 +1,17 @@
 {
   "name": "www-html",
-  "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "rm -rf .wrangler && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "allowScripts": {
-    "esbuild": true
+  "dependencies": {
+    "@astrojs/cloudflare": "latest",
+    "astro": "latest"
   },
   "devDependencies": {
-    "wrangler": "^4.129.1"
+    "wrangler": "latest"
   }
 }
