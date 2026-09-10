@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro';
+import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
