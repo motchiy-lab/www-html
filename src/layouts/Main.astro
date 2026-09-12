@@ -29,11 +29,24 @@ import GoogleTag from "../components/GoogleTag.astro";
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
-        <meta property="og:image" content="/images/ogp.png" />
+        <meta property="og:image" content="/ogp.png" />
         <meta name="twitter:card" content="summary_large_image" />
 
-        <link rel="icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Motchiy" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         <GoogleTag />
     </head>
@@ -44,12 +57,8 @@ import GoogleTag from "../components/GoogleTag.astro";
         <div class="main-layout">
             <!-- 左広告 -->
             <aside class="ad-banner ad-left">
-                <script
-                    src="https://adm.shinobi.jp/s/e12722c9994d3d6e45dc829c6cc2a73b"
-                ></script>
-                <script
-                    src="https://adm.shinobi.jp/s/1824812b189ff49b818af6c531b0707e"
-                ></script>
+                <script src="https://adm.shinobi.jp/s/e12722c9994d3d6e45dc829c6cc2a73b"></script>
+                <script src="https://adm.shinobi.jp/s/1824812b189ff49b818af6c531b0707e"></script>
             </aside>
 
             <!-- サイドメニュー -->
@@ -65,12 +74,8 @@ import GoogleTag from "../components/GoogleTag.astro";
 
             <!-- 右広告 -->
             <aside class="ad-banner ad-right">
-                <script
-                    src="https://adm.shinobi.jp/s/037b4f60fd04e37b9c14abab7c52a421"
-                ></script>
-                <script
-                    src="https://adm.shinobi.jp/s/cea84da5f4aa43764ab031ae559a5589"
-                ></script>
+                <script src="https://adm.shinobi.jp/s/037b4f60fd04e37b9c14abab7c52a421"></script>
+                <script src="https://adm.shinobi.jp/s/cea84da5f4aa43764ab031ae559a5589"></script>
             </aside>
         </div>
         <script>
