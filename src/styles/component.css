@@ -106,7 +106,19 @@ tr:nth-child(odd) { background-color: var(--white); }
     margin-top: 0;
 }
 
+.sp-element {
+    display: none;
+}
+
 /* スマホ時グリッド */
 @media (max-width: 600px) {
     .item-wrap { grid-template-columns: repeat(2, 1fr); }
+
+    .sp-element {
+        display: block;
+    }
+
+    .pc-element {
+        display: none;
+    }
 }
