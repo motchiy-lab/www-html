@@ -55,12 +55,6 @@ import GoogleTag from "../components/GoogleTag.astro";
         <Header />
 
         <div class="main-layout">
-            <!-- 左広告 -->
-            <aside class="ad-banner ad-left">
-                <script src="https://adm.shinobi.jp/s/e12722c9994d3d6e45dc829c6cc2a73b"></script>
-                <script src="https://adm.shinobi.jp/s/1824812b189ff49b818af6c531b0707e"></script>
-            </aside>
-
             <!-- サイドメニュー -->
             <nav id="side-menu" class="side-menu">
                 <Menu />
@@ -71,12 +65,6 @@ import GoogleTag from "../components/GoogleTag.astro";
                 <slot />
                 <Footer title={pageTitle} />
             </main>
-
-            <!-- 右広告 -->
-            <aside class="ad-banner ad-right">
-                <script src="https://adm.shinobi.jp/s/037b4f60fd04e37b9c14abab7c52a421"></script>
-                <script src="https://adm.shinobi.jp/s/cea84da5f4aa43764ab031ae559a5589"></script>
-            </aside>
         </div>
         <script>
             import "../components/script.js";

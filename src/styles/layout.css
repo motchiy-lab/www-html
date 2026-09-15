@@ -20,14 +20,12 @@
 
 /* ===== レイアウト構造 ===== */
 .main-layout {
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    gap: 20px;
+    display: flex;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding-top: var(--header-height);
     min-height: calc(100vh - 110px);
-    justify-content: center;
 }
 
 .container {
