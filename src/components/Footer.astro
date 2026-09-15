@@ -4,20 +4,17 @@ import Contact from "./Contact.astro";
 
 <!-- お問い合わせ -->
 <Contact />
-<!-- パソコン広告 --><!--?php if (!is_mobile()): ?-->
+<!-- パソコン広告 -->
 <div class="ad-inline">
     <script src="https://adm.shinobi.jp/s/dfb0ceffad1ef41111c5d4d7e44edeb1"
     ></script>
 </div>
-<!--?php endif; ?-->
 
 <!-- スマホ広告 -->
-<!--?php if (is_mobile()): ?-->
 <div class="ad-inline">
     <script src="https://adm.shinobi.jp/s/ccc4d4d71b222824281a22fc8e5ba1ad"
     ></script>
 </div>
-<!--?php endif; ?-->
 
 <footer class="footer">
     <div class="share-buttons">
@@ -27,7 +24,7 @@ import Contact from "./Contact.astro";
                 class="icon"
                 alt="Twitterアイコン"
             />
-            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->Twitterで共有<!--?php endif; ?-->
+            Twitterで共有
         </a>
 
         <a class="share-btn facebook" target="_blank" rel="noopener">
@@ -36,7 +33,7 @@ import Contact from "./Contact.astro";
                 class="icon"
                 alt="Facebookアイコン"
             />
-            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->Facebookで共有<!--?php endif; ?-->
+            Facebookで共有
         </a>
 
         <a class="share-btn line" target="_blank" rel="noopener">
@@ -45,7 +42,7 @@ import Contact from "./Contact.astro";
                 class="icon"
                 alt="LINEアイコン"
             />
-            <!--?php if (is_mobile()): ?-->で共有<!--?php else: ?-->LINEで共有<!--?php endif; ?-->
+            LINEで共有
         </a>
     </div>
     <p class="copyright">&copy; 2026 Motchiy</p>
