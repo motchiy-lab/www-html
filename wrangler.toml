@@ -10,7 +10,7 @@ compatibility_flags = [
 
 [assets]
 binding = "ASSETS"
-directory = "./dist"
+directory = "./dist/client"
 
 [[kv_namespaces]]
 binding = "SESSION"
