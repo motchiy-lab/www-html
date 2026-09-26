@@ -2,48 +2,178 @@
 import Main from "../layouts/Main.astro";
 ---
 
-<Main pageTitle="お問い合わせ">
-    <section class="contact-section">
+<Main
+    pageTitle="お問い合わせ"
+    description="Motchiy Serverへのご質問やご要望はこちらからお送りください。"
+>
+    <section class="contact-section section">
         <h2>お問い合わせ</h2>
         <p>
-            ご質問やお問い合わせは、以下のフォームまたは公式Discordサーバーよりお願いいたします。
+            サーバー参加希望、バグ報告、ご意見・ご要望などはこちらからお送りください。
+            内容を確認のうえ、必要に応じてご連絡します。
         </p>
 
         <form
+            id="contact-form"
             class="contact-form"
-            action="https://formspree.io/f/your-form-id"
-            method="POST"
+            action="/api/contact"
+            method="post"
+            hidden
         >
             <div class="form-row">
                 <div class="form-group">
-                    <label for="name">お名前</label>
+                    <label for="name">
+                        お名前 <span class="required" aria-hidden="true">*</span>
+                    </label>
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Motchiy"
                         required
+                        minlength="2"
+                        maxlength="100"
                         autocomplete="name"
+                        placeholder="山田 太郎"
                     />
                 </div>
 
                 <div class="form-group">
-                    <label for="email">メールアドレス</label>
+                    <label for="email">
+                        メールアドレス <span class="required" aria-hidden="true">*</span>
+                    </label>
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="info@motchiy.com"
                         required
+                        maxlength="254"
                         autocomplete="email"
+                        placeholder="example@email.com"
                     />
                 </div>
             </div>
 
-            <label for="message">お問い合わせ内容</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="form-group">
+                <label for="subject">
+                    件名 <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    minlength="3"
+                    maxlength="150"
+                    placeholder="お問い合わせの件名"
+                />
+            </div>
 
-            <button type="submit">送信</button>
+            <div class="form-group">
+                <label for="message">
+                    お問い合わせ内容 <span class="required" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                    minlength="10"
+                    maxlength="5000"
+                    rows="8"
+                    placeholder="お問い合わせ内容をご記入ください"
+                ></textarea>
+            </div>
+
+            <p class="form-note"><span aria-hidden="true">*</span> は必須項目です。</p>
+            <p id="contact-result" class="form-status" role="status" aria-live="polite"></p>
+            <button type="submit" id="contact-submit">送信する</button>
         </form>
+
+        <noscript>
+            <p class="form-status">
+                フォームの送信にはJavaScriptを有効にしてください。お急ぎの場合は
+                <a href="mailto:info@motchiy.com">info@motchiy.com</a>
+                までご連絡ください。
+            </p>
+        </noscript>
     </section>
 </Main>
+
+<script>
+    interface ContactResponse {
+        success: boolean;
+        message?: string;
+        errors?: string[];
+    }
+
+    function isContactResponse(value: unknown): value is ContactResponse {
+        if (typeof value !== "object" || value === null || !("success" in value)) {
+            return false;
+        }
+
+        const result = value as Record<string, unknown>;
+        return (
+            typeof result.success === "boolean" &&
+            (result.message === undefined || typeof result.message === "string") &&
+            (result.errors === undefined ||
+                (Array.isArray(result.errors) &&
+                    result.errors.every((error) => typeof error === "string")))
+        );
+    }
+
+    const form = document.querySelector<HTMLFormElement>("#contact-form");
+    const submitButton =
+        document.querySelector<HTMLButtonElement>("#contact-submit");
+    const resultMessage =
+        document.querySelector<HTMLParagraphElement>("#contact-result");
+
+    if (form) {
+        form.removeAttribute("hidden");
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            if (!submitButton || !resultMessage) return;
+
+            resultMessage.textContent = "";
+            resultMessage.classList.remove("is-error", "is-success");
+            submitButton.disabled = true;
+            submitButton.textContent = "送信中...";
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(
+                        Object.fromEntries(new FormData(form).entries()),
+                    ),
+                });
+                const responseBody: unknown = await response.json();
+
+                if (!isContactResponse(responseBody)) {
+                    throw new Error("Unexpected contact form response");
+                }
+
+                if (!response.ok || !responseBody.success) {
+                    resultMessage.textContent =
+                        responseBody.errors?.join(" ") ??
+                        "送信に失敗しました。入力内容をご確認ください。";
+                    resultMessage.classList.add("is-error");
+                    resultMessage.setAttribute("role", "alert");
+                    return;
+                }
+
+                resultMessage.textContent =
+                    responseBody.message ?? "お問い合わせを送信しました。";
+                resultMessage.classList.add("is-success");
+                resultMessage.setAttribute("role", "status");
+                form.reset();
+            } catch {
+                resultMessage.textContent =
+                    "送信中にエラーが発生しました。時間をおいて再度お試しください。";
+                resultMessage.classList.add("is-error");
+                resultMessage.setAttribute("role", "alert");
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "送信する";
+            }
+        });
+    }
+</script>
