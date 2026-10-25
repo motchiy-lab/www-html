@@ -2,36 +2,52 @@
   {
     "title": "YouTube",
     "links": [
-      { "url": "https://www.youtube.com/@saihou-heiki", "label": "メインチャンネル" },
-      { "url": "https://www.youtube.com/@heiki-orica-lab", "label": "オリカ工房" },
-      { "url": "https://www.youtube.com/@heiki-theater", "label": "ミニシアター" }
+      {
+        "url": "https://www.youtube.com/@saihou-heiki",
+        "label": "メインチャンネル"
+      },
+      {
+        "url": "https://www.youtube.com/@heiki-orica-lab",
+        "label": "オリカ工房"
+      },
+      {
+        "url": "https://www.youtube.com/@heiki-theater",
+        "label": "ミニシアター"
+      }
     ]
   },
   {
     "title": "X (Twitter)",
     "links": [
       { "url": "https://x.com/leoved_kuru", "label": "Kuru⁵" },
-      { "url": "https://twitter.com/mootchiiy", "label": "モーチーという偽名の男" },
+      {
+        "url": "https://twitter.com/mootchiiy",
+        "label": "モーチーという偽名の男"
+      },
       { "url": "https://x.com/jingyunlrn46012", "label": "干支3" }
     ]
   },
   {
     "title": "小説家になろう",
     "links": [
-      { "url": "https://mypage.syosetu.com/2526862/", "label": "くろこげめろん" }
+      {
+        "url": "https://mypage.syosetu.com/2526862/",
+        "label": "くろこげめろん"
+      }
     ]
   },
   {
     "title": "カクヨム",
     "links": [
-      { "url": "https://kakuyomu.jp/users/melting_star", "label": "ルークアイド・チェス" }
+      {
+        "url": "https://kakuyomu.jp/users/melting_star",
+        "label": "ルークアイド・チェス"
+      }
     ]
   },
   {
     "title": "Minecraft",
-    "links": [
-      { "url": "https://namemc.com/profile/Rkun.2", "label": "Rkun" }
-    ]
+    "links": [{ "url": "https://namemc.com/profile/Rkun.2", "label": "Rkun" }]
   },
   {
     "title": "Planet Minecraft",
@@ -42,13 +58,19 @@
   {
     "title": "Pixiv",
     "links": [
-      { "url": "https://www.pixiv.net/users/64641168", "label": "さいほうへいきEX" }
+      {
+        "url": "https://www.pixiv.net/users/64641168",
+        "label": "さいほうへいきEX"
+      }
     ]
   },
   {
     "title": "Wiki",
     "links": [
-      { "url": "https://w.atwiki.jp/mootchiiy/pages/48.html", "label": "詳細な情報を見る" }
+      {
+        "url": "https://w.atwiki.jp/mootchiiy/pages/48.html",
+        "label": "詳細な情報を見る"
+      }
     ]
   }
 ]
