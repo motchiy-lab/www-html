@@ -1,5 +1,10 @@
 ---
-const { pageTitle, description = "", canonical = Astro.url.href } = Astro.props;
+const {
+    pageTitle,
+    description = "",
+    canonical = Astro.url.href,
+    showContactSection,
+} = Astro.props;
 
 import "../styles/base.css";
 import "../styles/component.css";
@@ -63,7 +68,7 @@ import GoogleTag from "../components/GoogleTag.astro";
             <main class="container">
                 <!--  <MaintenanceNotice /> -->
                 <slot />
-                <Footer title={pageTitle} />
+                <Footer showContactSection={showContactSection} />
             </main>
         </div>
         <script>

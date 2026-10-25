@@ -1,9 +1,11 @@
 ---
 import Contact from "./Contact.astro";
+
+const { showContactSection = true } = Astro.props;
 ---
 
 <!-- お問い合わせ -->
-<Contact />
+{showContactSection && <Contact />}
 
 <footer class="footer">
     <div class="share-buttons">

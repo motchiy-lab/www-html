@@ -5,6 +5,7 @@ import Main from "../layouts/Main.astro";
 <Main
     pageTitle="お問い合わせ"
     description="Motchiy Serverへのご質問やご要望はこちらからお送りください。"
+    showContactSection={false}
 >
     <section class="contact-section section">
         <h2>お問い合わせ</h2>
@@ -23,7 +24,10 @@ import Main from "../layouts/Main.astro";
             <div class="form-row">
                 <div class="form-group">
                     <label for="name">
-                        お名前 <span class="required" aria-hidden="true">*</span>
+                        お名前{" "}
+                        <span class="required" aria-hidden="true">
+                            *
+                        </span>
                     </label>
                     <input
                         type="text"
@@ -39,7 +43,10 @@ import Main from "../layouts/Main.astro";
 
                 <div class="form-group">
                     <label for="email">
-                        メールアドレス <span class="required" aria-hidden="true">*</span>
+                        メールアドレス{" "}
+                        <span class="required" aria-hidden="true">
+                            *
+                        </span>
                     </label>
                     <input
                         type="email"
@@ -55,7 +62,10 @@ import Main from "../layouts/Main.astro";
 
             <div class="form-group">
                 <label for="subject">
-                    件名 <span class="required" aria-hidden="true">*</span>
+                    件名{" "}
+                    <span class="required" aria-hidden="true">
+                        *
+                    </span>
                 </label>
                 <input
                     type="text"
@@ -70,7 +80,10 @@ import Main from "../layouts/Main.astro";
 
             <div class="form-group">
                 <label for="message">
-                    お問い合わせ内容 <span class="required" aria-hidden="true">*</span>
+                    お問い合わせ内容{" "}
+                    <span class="required" aria-hidden="true">
+                        *
+                    </span>
                 </label>
                 <textarea
                     id="message"
@@ -83,9 +96,18 @@ import Main from "../layouts/Main.astro";
                 ></textarea>
             </div>
 
-            <p class="form-note"><span aria-hidden="true">*</span> は必須項目です。</p>
-            <p id="contact-result" class="form-status" role="status" aria-live="polite"></p>
-            <button type="submit" id="contact-submit">送信する</button>
+            <p class="form-note">
+                <span aria-hidden="true">*</span> は必須項目です。
+            </p>
+            <p
+                id="contact-result"
+                class="form-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+            <button type="submit" id="contact-submit">
+                送信する
+            </button>
         </form>
 
         <noscript>
@@ -106,14 +128,19 @@ import Main from "../layouts/Main.astro";
     }
 
     function isContactResponse(value: unknown): value is ContactResponse {
-        if (typeof value !== "object" || value === null || !("success" in value)) {
+        if (
+            typeof value !== "object" ||
+            value === null ||
+            !("success" in value)
+        ) {
             return false;
         }
 
         const result = value as Record<string, unknown>;
         return (
             typeof result.success === "boolean" &&
-            (result.message === undefined || typeof result.message === "string") &&
+            (result.message === undefined ||
+                typeof result.message === "string") &&
             (result.errors === undefined ||
                 (Array.isArray(result.errors) &&
                     result.errors.every((error) => typeof error === "string")))
