@@ -1,6 +1,7 @@
 ---
 import Main from "../layouts/Main.astro";
 import expensesData from "../data/expenses.json";
+import donationsData from "../data/donations.json";
 
 const categoryDict: Record<string, string> = {
     "pc-parts": "PCパーツ",
@@ -11,6 +12,13 @@ const tableNode = expensesData.find(
     (node: any) => node.type === "table" && node.name === "expenses",
 );
 const rows = tableNode && tableNode.data ? [...tableNode.data].reverse() : [];
+const donationsTableNode = donationsData.find(
+    (node: any) => node.type === "table" && node.name === "donations",
+);
+const donationRows =
+    donationsTableNode && donationsTableNode.data
+        ? [...donationsTableNode.data].reverse()
+        : [];
 ---
 
 <Main pageTitle="寄付のお願い">
@@ -52,6 +60,40 @@ const rows = tableNode && tableNode.data ? [...tableNode.data].reverse() : [];
             寄付金の使い道や収支状況については、定期的に報告する予定です。<br />
             透明性を大切にしていきます。
         </p>
+        <h3>いただいた寄付</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>寄付内容</th>
+                    <th class="amount">金額</th>
+                    <th class="received_at">受取日</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    donationRows.map((row: any) => {
+                        const amount =
+                            parseInt(row.amount || "0", 10).toLocaleString() +
+                            "円";
+
+                        let receivedAtFormatted = "";
+                        if (row.received_at) {
+                            const [y, m, d] = row.received_at.split("-");
+                            receivedAtFormatted = `${y}年 ${parseInt(m, 10)}月 ${parseInt(d, 10)}日`;
+                        }
+
+                        return (
+                            <tr>
+                                <td>{row.item || ""}</td>
+                                <td class="amount">{amount}</td>
+                                <td>{receivedAtFormatted}</td>
+                            </tr>
+                        );
+                    })
+                }
+            </tbody>
+        </table>
+        <h3>購入したもの</h3>
         <table>
             <thead>
                 <tr>
