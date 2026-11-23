@@ -12,6 +12,10 @@ table {
     border-collapse: collapse;
 }
 
+.inside-table {
+    margin-top: -36px;
+}
+
 th, td {
     padding: 10px 14px;
     border-right: 1px solid #666;

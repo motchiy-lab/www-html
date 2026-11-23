@@ -9,6 +9,13 @@
     "type": "table",
     "name": "donations",
     "database": "web_db",
-    "data": []
+    "data": [
+      {
+        "id": "1",
+        "item": "ソフト開発がんばって",
+        "amount": "1000",
+        "received_at": "2026-11-23"
+      }
+    ]
   }
 ]
